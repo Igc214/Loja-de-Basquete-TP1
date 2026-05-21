@@ -41,4 +41,6 @@ public class Usuario extends DefaultEntity {
     public void setPerfil(Perfil perfil) {
         this.perfil = perfil;
     }
+
+    
 }

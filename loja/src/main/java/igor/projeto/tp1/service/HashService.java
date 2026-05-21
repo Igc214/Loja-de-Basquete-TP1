@@ -15,6 +15,22 @@ import jakarta.enterprise.context.ApplicationScoped;
 public class HashService {
 
 
+    public static void main(String[] args) {
+        HashService hashService = new HashService();
+
+        String senha = "igc214"; // Exemplo de senha para teste
+        String senha2 = "123456";
+        String hashSha256 = hashService.sha256(senha);
+        String hashBcrypt = hashService.bcrypt(senha);
+        String hashBcrypt2 = hashService.bcrypt(senha2);
+
+        System.out.println("Senha original: " + senha);
+        System.out.println("Hash SHA-256: " + hashSha256);
+        System.out.println("Hash BCrypt: " + hashBcrypt);
+        System.out.println("Hash BCrypt2: " + hashBcrypt2);
+    }
+
+
     /**
      * Gera o hash SHA-256 de uma String e retorna o resultado em hexadecimal.
      */
