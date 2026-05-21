@@ -6,9 +6,11 @@ import igor.projeto.tp1.dto.FuncionarioRequestDTO;
 import igor.projeto.tp1.exception.ValidationException;
 import igor.projeto.tp1.model.Funcionario;
 import igor.projeto.tp1.repository.FuncionarioRepository;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
+import jakarta.ws.rs.GET;
 
 @ApplicationScoped
 public class FuncionarioServiceImpl implements FuncionarioService {
@@ -16,6 +18,8 @@ public class FuncionarioServiceImpl implements FuncionarioService {
     @Inject
     FuncionarioRepository repository;
 
+    @GET
+    @RolesAllowed("ADMIN")// Apenas usuários com a role "ADMIN" podem acessar este endpoint
     @Override
     public List<Funcionario> findAll() {
         return repository.findAll().list();
